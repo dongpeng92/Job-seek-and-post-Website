@@ -1,0 +1,44 @@
+<div class="container">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Sign Up Page</h3>
+            </div>
+            <div class="panel-body">
+                <form>
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" ng-model="authform.username" class="form-control" id="username" placeholder="Username">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" ng-model="authform.password" class="form-control" id="password" placeholder="Password">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" ng-model="authform.email" class="form-control" id="email" placeholder="Email"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="location">Location</label>
+                        <input type="text" ng-model="authform.location" class="form-control" id="location" placeholder="Location">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="text" ng-model="authform.phone" class="form-control" id="phone" placeholder="Phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="type">User Type</label>
+                        <div id="type">
+                            <input type="radio" value="company" name="type" ng-model="authform.type"/> Company
+                            <input type="radio" value="job_seeker" name="type" ng-model="authform.type"/> Job seeker
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-default pull-right" ng-click="signup()">Sign Up</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-md-2"></div>
+</div>

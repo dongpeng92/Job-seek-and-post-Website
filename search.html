@@ -1,0 +1,70 @@
+
+<ul class="nav nav-tabs">
+    <li class="nav-link active"><a data-toggle="tab" data-target="#home">Search Jobs</a></li>
+    <li><a class="nav-link" data-toggle="tab" data-target="#menu1">Applied Jobs</a></li>
+    <li><a class="nav-link" data-toggle="tab" data-target="#menu2">Saved Jobs</a></li>
+</ul>
+
+<div class="tab-content">
+    <div id="home" class="tab-pane fade in active">
+        <div class="container">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <div class="page-header">
+                    <h2>Search jobs</h2>
+                </div>
+                <div>
+                    <form class="navbar-form navbar-left">
+                        <select class="mdb-select colorful-select dropdown-primary" ng-model="searchform.key">
+                            <option ng-model="searchform.key" value="title">title</option>
+                            <option ng-model="searchform.key" value="keywords">keywords</option>
+                            <option ng-model="searchform.key" value="location">location</option>
+                        </select>
+                        <div class="form-group">
+                            <input type="text" ng-model="searchform.content" class="form-control" placeholder="Search">
+                        </div>
+                        <button type="submit" class="btn btn-default" ng-click="search()">Submit</button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+
+        <div class="container">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <ul class="list-group" ng-repeat="job in job_list">
+                    <li class="list-group-item">
+                        <h4><label>Title: </label>{{job.title}}</h4>
+                        <p><label>Description: </label>{{job.desc}}</p>
+                        <label>Keywords: </label><span>{{job.keywords}}</span><label>Location: </label><span>{{job.location}}</span><br>
+                        <button type="submit" id="apply_{{job._id}}" class="btn btn-default" ng-click="apply(job._id)" ng-disabled="job.applied">Apply Job</button>
+                        <button type="submit" id="mark_{{job._id}}" class="btn btn-default" ng-click="mark(job._id)" ng-disabled="job.saved">Save Job</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+
+    </div>
+    <div id="menu1" class="tab-pane fade">
+        <h2>Applied Jobs</h2>
+        <ul class="list-group" ng-repeat="job in applied_jobs">
+            <li class="list-group-item">
+                <h4><label>Title: </label>{{job.title}}</h4>
+                <p><label>Description: </label>{{job.desc}}</p>
+                <label>Keywords: </label><span>{{job.keywords}}</span><label>Location: </label><span>{{job.location}}</span><br>
+            </li>
+        </ul>
+    </div>
+    <div id="menu2" class="tab-pane fade">
+        <h2>Saved Jobs</h2>
+        <ul class="list-group" ng-repeat="job in saved_jobs">
+            <li class="list-group-item">
+                <h4><label>Title: </label>{{job.title}}</h4>
+                <p><label>Description: </label>{{job.desc}}</p>
+                <label>Keywords: </label><span>{{job.keywords}}</span><label>Location: </label><span>{{job.location}}</span><br>
+            </li>
+        </ul>
+    </div>
+</div>
