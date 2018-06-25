@@ -154,17 +154,19 @@ app.controller('searchController', function ($scope, $http, $rootScope) {
                 }
             })
     };
-    console.log($scope.job_list);
-    for (var i = 0; i < $scope.job_list.length; i++){
-        if($rootScope.user.applied.includes($scope.job_list[i]._id)) {
-            $scope.job_list[i].applied=true;
-        } else {
-            $scope.job_list[i].applied=false;
-        }
-        if ($rootScope.user.saved.includes($scope.job_list[i]._id)) {
-            $scope.job_list[i].saved=true;
-        } else {
-            $scope.job_list[i].saved=false;
+    if(localStorage.job_list) {
+        console.log($scope.job_list);
+        for (var i = 0; i < $scope.job_list.length; i++){
+            if($rootScope.user.applied.includes($scope.job_list[i]._id)) {
+                $scope.job_list[i].applied=true;
+            } else {
+                $scope.job_list[i].applied=false;
+            }
+            if ($rootScope.user.saved.includes($scope.job_list[i]._id)) {
+                $scope.job_list[i].saved=true;
+            } else {
+                $scope.job_list[i].saved=false;
+            }
         }
     }
     $scope.apply = function (id) {
